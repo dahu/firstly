@@ -2,20 +2,20 @@ Firstly
 
 Convert between the twelve forms of numeric, written and ordinal numbers:
 
-From   To     Use                Status
---------------------------------------------
-1      one    NumToNumber()      Implemented
-1      1st    NumToOrd()         Implemented
-1      first  NumToOrdinal()     Implemented
-one    1      NumberToNum()      Coming
-one    1st    NumberToOrd()      Coming
-one    first  NumberToOrdinal()  Implemented
-1st    1      OrdToNum()         Implemented
-1st    one    OrdToNumber()      Implemented
-1st    first  OrdToOrdinal()     Implemented
-first  1      OrdinalToNum()     Coming
-first  one    OrdinalToNumber()  Coming
-first  1st    OrdinalToOrd()     Coming
+From   To     Use
+--------------------------------
+1      one    NumToNumber()
+1      1st    NumToOrd()
+1      first  NumToOrdinal()
+one    1      NumberToNum()
+one    1st    NumberToOrd()
+one    first  NumberToOrdinal()
+1st    1      OrdToNum()
+1st    one    OrdToNumber()
+1st    first  OrdToOrdinal()
+first  1      OrdinalToNum()
+first  one    OrdinalToNumber()
+first  1st    OrdinalToOrd()
 
 Each function accepts an optional second parameter to control the
 capitalisation of the return value (where appropriate):
