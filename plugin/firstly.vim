@@ -177,7 +177,7 @@ function! s:Capitalize(str, ...)
 endfunction
 
 function! s:StrToNum(str)
-  if match(a:str, '^\d\+$') == -1
+  if match(a:str, '^-\?\d\+$') == -1
     return ''
   endif
   return str2nr(a:str)
@@ -189,7 +189,7 @@ endfunction
 " Returns the possibly capitalised value.
 function! s:Numerically(funcref, num, ...)
   let num = s:StrToNum(a:num)
-  if num == ''
+  if num =~ '^$'
     return ''
   endif
   let result = call(function(a:funcref), [num])
@@ -294,7 +294,13 @@ endfunction
 " four" and it will spit out 24.
 "03: one -> 1
 function! s:_NumberToNum(engnum, ...)
-  return s:CombineNumberSequence(map(filter(split(tolower(a:engnum), '[ ,.-]\|\<and\>'), 'v:val != ""'), 's:numberToNum[v:val]'))
+  let negative = match(a:engnum, 'negative', '', 'i')
+  let result = s:CombineNumberSequence(map(filter(split(tolower(a:engnum), '[ ,.-]\|\<and\>\|\<negative\>'), 'v:val != ""'), 's:numberToNum[v:val]'))
+  if negative != -1
+    return -result
+  else
+    return result
+  endif
 endfunction
 
 function! NumberToNum(engnum, ...)

@@ -29,3 +29,7 @@ Value  Means
 
 Requires Salman Halim's NumberToEnglish plugin:
 http://www.vim.org/scripts/script.php?script_id=2561
+
+NOTE: The NumberToEnglish plugin (at least version 1.4 does) might have CRLF
+      line terminators which cause an error message on unix systems. Use
+      dos2unix to fix this problem.
