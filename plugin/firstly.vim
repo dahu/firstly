@@ -200,11 +200,12 @@ endfunction
 " Calls the provided real function on the string
 " Returns the possibly capitalised value.
 function! s:Wordly(funcref, engnum, ...)
-  " following regex to match '^\s*[[:alpha:][:space:]]\+\s*$' is ugly as sin...
-  " but the clearer regex constantly failed for some reason... ? (XXX)
-  if a:engnum !~ '^\s*\%(\%(\a\)\|\%(\s\)\)\+\s*$'
-    return ''
-  endif
+  " Disabled this regex check... unsure now why I was bothering with it? :-/
+  "" following regex to match '^\s*[[:alpha:][:space:]]\+\s*$' is ugly as sin...
+  "" but the clearer regex constantly failed for some reason... ? (XXX)
+  "if a:engnum !~ '^\s*\%(\%(\a\)\|\%(\s\)\)\+\s*$'
+    "return ''
+  "endif
   let result = call(function(a:funcref), [a:engnum])
   return call(function('s:Capitalize'), [result] + a:000)
 endfunction
