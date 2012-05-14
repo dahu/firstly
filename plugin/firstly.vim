@@ -255,7 +255,7 @@ endfunction
 
 "00: 1 -> one
 function! s:_NumToNumber(num, ...)
-  return NumberToEnglish(a:num)
+  return NumberToEnglish#Cardinal(a:num)
 endfunction
 
 function! NumToNumber(num, ...)
@@ -279,7 +279,7 @@ endfunction
 
 "02: 1 -> first
 function! s:_NumToOrdinal(num, ...)
-  return call(function('NumberToOrdinal'), [NumberToEnglish(str2nr(a:num))] + a:000)
+  return call(function('NumberToOrdinal'), [NumberToEnglish#Cardinal(str2nr(a:num))] + a:000)
 endfunction
 
 function! NumToOrdinal(num, ...)
@@ -337,7 +337,7 @@ endfunction
 
 "07: 1st -> one
 function! s:_OrdToNumber(ord, ...)
-  return NumberToEnglish(OrdToNum(a:ord))
+  return NumberToEnglish#Cardinal(OrdToNum(a:ord))
 endfunction
 
 function! OrdToNumber(ord, ...)
